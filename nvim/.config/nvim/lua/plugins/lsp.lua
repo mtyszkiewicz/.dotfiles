@@ -16,7 +16,7 @@ return {
                 require('lspconfig')[server].setup({
                     capabilities = lsp_capabilities,
                 })
-            end -- This end closes the default_setup function
+            end
 
             require('mason-lspconfig').setup({
                 ensure_installed = {
@@ -24,7 +24,7 @@ return {
                     'gopls',
                     'jsonls',
                     'lua_ls',
-                    'pyright',
+                    'ruff_lsp',
                     'tsserver',
                     'yamlls',
                 },
@@ -33,24 +33,69 @@ return {
                 },
             })
 
-            -- Special setup for lua_ls
-            require('lspconfig').lua_ls.setup({
+            local opts = { noremap=true, silent=true }
+            vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+            vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+            -- This function gets run when an LSP connects to a particular buffer.
+            local on_attach = function(_, bufnr)
+                -- Enable completion triggered by <c-x><c-o>
+                vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+                -- Mappings.
+                -- See `:help vim.lsp.*` for documentation on any of the below functions
+                local bufopts = { noremap=true, silent=true, buffer=bufnr }
+                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+                vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+                vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+                vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+                vim.keymap.set('n', '<space>wl', function()
+                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                end, bufopts)
+                vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+                vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+                vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+                vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+                vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+            end
+
+            local lspconfig = require('lspconfig')
+
+            lspconfig.lua_ls.setup({
+                on_attach = on_attach,
                 capabilities = lsp_capabilities,
                 settings = {
                     Lua = {
-                        diagnostics = {
-                            globals = { 'vim' }
-                        }
+                        completion = {
+							callSnippet = "Replace",
+						},
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							library = {
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.stdpath("config") .. "/lua"] = true,
+							},
+						},
                     }
                 }
             })
 
-            require('mason-tool-installer').setup({
-                ensure_installed = {
-                    'black',
-                    'isort',
-                },
-            })
+            lspconfig.ruff_lsp.setup {
+                on_attach = on_attach,
+                init_options = {
+                    settings = {
+                        -- Any extra CLI arguments for `ruff` go here.
+                        args = {},
+                    }
+                }
+            }
         end,
     },
 }
