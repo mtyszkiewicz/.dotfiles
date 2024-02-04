@@ -5,11 +5,14 @@ return {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
+            "folke/neodev.nvim",
             "WhoIsSethDaniel/mason-tool-installer.nvim"
         },
         config = function()
             -- Set up Mason before anything else
             require("mason").setup()
+
+            require("neodev").setup()
 
             local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
             local default_setup = function(server)
