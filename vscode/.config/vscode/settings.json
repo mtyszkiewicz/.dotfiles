@@ -1,0 +1,91 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.enabled": false,
+
+    // Remote Explorer
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "neptune": "linux",
+        "neptune-wg": "linux",
+        "bedroom": "linux",
+        "neptune-local": "linux",
+        "wsl": "linux",
+        "rpi": "linux",
+        "10.0.0.9": "linux",
+        "192.168.1.17": "linux"
+    },
+    "remote.SSH.enableAgentForwarding": true,
+    "remote.SSH.configFile": "~/.ssh/config",
+
+    // Version Control
+    "git.ignoreLegacyWarning": true,
+    "git.confirmSync": false,
+
+    // Vim
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.replace": "block",
+    "vim.cursorStylePerMode.visual": "block-outline",
+    "vim.smartRelativeLine": true,
+    "vim.useCtrlKeys": true, // On Windows set to false
+    "vim.timeout": 200,
+    "vim.autoindent": true,
+
+    // Editor Preferences
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "workbench.iconTheme": "bearded-icons",
+    "editor.bracketPairColorization.enabled": true, // [*]
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.inlineSuggest.enabled": true,
+    "editor.hover.delay": 50,  
+
+    "python.analysis.autoImportCompletions": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.largeFileOptimizations": false,
+        "editor.formatOnType": true
+    },
+    "[html, css, js, ts, svelte, json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "[sql]": {
+        "editor.defaultFormatter": "bradymholt.pgformatter",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "files.associations": {
+        "*.sql": "jinja-sql"
+    },
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "explorer.confirmDragAndDrop": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.largeFileOptimizations": false,
+    "git.openRepositoryInParentFolders": "always",
+    "files.autoSave": "onWindowChange",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "[jinja-sql]": {
+        "editor.defaultFormatter": "bradymholt.pgformatter"
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "redhat.telemetry.enabled": false,
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "GitHub Dark"
+}
