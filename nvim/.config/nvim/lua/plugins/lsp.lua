@@ -30,6 +30,7 @@ return {
                     'ruff_lsp',
                     'tsserver',
                     'yamlls',
+                    'sqlls'
                 },
                 handlers = {
                     default_setup,
@@ -93,6 +94,11 @@ return {
                     }
                 }
             }
+
+            lspconfig.sqlls.setup({
+                cmd = { "sql-language-server", "up", "--method", "stdio" },
+                filetypes = { "sql" }
+            })
         end,
     },
 }
