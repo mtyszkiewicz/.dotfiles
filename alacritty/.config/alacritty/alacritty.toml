@@ -22,6 +22,9 @@ blinking = "On"
 [cursor]
 unfocused_hollow = true
 
+[env]
+TERM = "xterm-256color"
+
 [font]
 size = 15.0
 
