@@ -11,4 +11,10 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- Use statusline plugin instead
+vim.opt.laststatus = 3
+
+-- Highlight cursor line
+vim.opt.cursorline = true
+
 vim.cmd[[colorscheme tokyonight]]
