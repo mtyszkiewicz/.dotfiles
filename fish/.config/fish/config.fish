@@ -23,4 +23,4 @@ if status --is-interactive
 end
 
 source ~/.config/fish/lscolors.fish
-fish_config theme choose "Rosé Pine Dawn"
+fish_config theme choose "Rosé Pine"

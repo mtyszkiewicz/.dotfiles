@@ -1,25 +1,27 @@
-shell = "/opt/homebrew/bin/fish"
 live_config_reload = true
+import = ["~/.config/alacritty/themes/rose-pine.toml"]
 
 [window]
 decorations = "full"
+dynamic_title = true
 dynamic_padding = false
-opacity = 0.92
+opacity = 0.9
 startup_mode = "Windowed"
 
-[window.dimensions]
-columns = 80
-lines = 35
+# [window.dimensions]
+# columns = 80
+# lines = 35
 
 [window.padding]
-x = 5
-y = 5
+x = 8
+y = 8
 
 [cursor.style]
 shape = "Block"
 blinking = "On"
 
 [cursor]
+blink_interval = 456
 unfocused_hollow = true
 
 [env]
