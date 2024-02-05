@@ -16,5 +16,3 @@ vim.opt.laststatus = 3
 
 -- Highlight cursor line
 vim.opt.cursorline = true
-
-vim.cmd[[colorscheme tokyonight]]

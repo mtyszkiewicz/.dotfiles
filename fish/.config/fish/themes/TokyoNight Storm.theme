@@ -1,4 +1,5 @@
-# Upstream: https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_storm.fish
+# TokyoNight Theme for Fish Shell
+
 # Syntax Highlighting Colors
 fish_color_normal c0caf5
 fish_color_command 7dcfff
@@ -14,10 +15,27 @@ fish_color_search_match --background=2e3c64
 fish_color_operator 9ece6a
 fish_color_escape bb9af7
 fish_color_autosuggestion 565f89
+fish_color_cwd c0caf5  # Added using foreground color for consistency
+# fish_color_cwd_root Not provided, consider using red or another distinct color
+fish_color_user 7dcfff  # Adapted, can use cyan for user
+fish_color_host bb9af7  # Adapted, can use pink for host
+fish_color_host_remote ff9e64  # Adapted, can use orange for remote host
+fish_color_cancel f7768e  # Adapted, can use red for cancel
+fish_color_valid_path c0caf5  # Added using foreground color for consistency
 
 # Completion Pager Colors
 fish_pager_color_progress 565f89
+fish_pager_color_background --background=2e3c64  # Adapted using selection color
 fish_pager_color_prefix 7dcfff
 fish_pager_color_completion c0caf5
 fish_pager_color_description 565f89
+fish_pager_color_secondary_background --background=2e3c64  # Adapted, same as selection
+fish_pager_color_secondary_prefix 7dcfff  # Adapted, using cyan for consistency
+fish_pager_color_secondary_completion c0caf5  # Adapted, using foreground color
+fish_pager_color_secondary_description 565f89  # Adapted, using comment color
 fish_pager_color_selected_background --background=2e3c64
+fish_pager_color_selected_prefix 7dcfff
+fish_pager_color_selected_completion c0caf5
+fish_pager_color_selected_description 565f89
+
+
