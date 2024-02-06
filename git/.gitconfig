@@ -12,3 +12,6 @@ ga = graph --all
 [user]
     email = 56219944+mtyszkiewicz@users.noreply.github.com
     name = Marcin Tyszkiewicz
+
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
