@@ -1,22 +1,34 @@
-# .dotfiles
+# My dotfiles
+This repository contains the dotfiles for my systems
 
-Link:
+## Requirements
+ - git
+ - stow
+
+## Installation
+First, clone the dotfiles repo to your $HOME directory
 ```sh
-cd ~/dotfiles/
-stow package_name
+git clone git@github.com/mtyszkiewicz/.dotfiles.git
+cd .dotfiles
 ```
 
-Unlink:
+then, use GNU stow to create symlinks to any package
 ```sh
-cd ~/dotflies/
+stow [--adopt] package_name
+```
+
+## Unlink
+```sh
 stow -D package_name
 ```
 
-Brew:
+## Brew
+for brew packages installation use
 ```sh
-# Install packages
-brew bundle install --file ~/.dotfiles/brew/Brewfile
+brew bundle --file ~/.dotfiles/brew/Brewfile
+```
 
-# Dump to Brewfile
+to update the bundle use
+```sh
 brew bundle dump --file ~/.dotfiles/brew/Brewfile
 ```
