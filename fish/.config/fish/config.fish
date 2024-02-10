@@ -13,6 +13,9 @@ alias tree="tree -C"
 # alias ssh="~/.ssh/ssh-wrapper.sh $argv"
 alias vscode-setup="sh ~/.config/scripts/vscode-setup.sh"
 alias zspotify='$HOME/projects/zspotify/.venv/bin/python3 -m zspotify -md "$HOME/Music/Spotify"'
+alias wr="wormhole receive"
+alias ws="wormhole send"
+alias nv="nvim ."
 
 set fish_greeting  # disable fish greeting
 fish_add_path /opt/homebrew/bin
