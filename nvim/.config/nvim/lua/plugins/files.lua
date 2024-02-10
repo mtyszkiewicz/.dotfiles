@@ -5,7 +5,7 @@ return {
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
-        config = function ()
+        config = function()
             local minifiles = require("mini.files")
 
             minifiles.setup({
@@ -22,7 +22,7 @@ return {
                             and entry.name ~= '.venv'
                         )
                     end,
-                    prefix = function () end,
+                    prefix = function() end,
                 },
                 windows = {
                     preview = true,

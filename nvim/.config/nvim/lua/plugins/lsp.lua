@@ -12,9 +12,6 @@ return {
             -- Set up Mason before anything else
             require("mason").setup()
 
-
-
-
             vim.api.nvim_create_autocmd(
                 "BufWritePre",
                 {
