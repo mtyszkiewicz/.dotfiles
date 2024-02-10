@@ -12,6 +12,21 @@ return {
             -- Set up Mason before anything else
             require("mason").setup()
 
+
+
+
+            vim.api.nvim_create_autocmd(
+                "BufWritePre",
+                {
+                    callback = function(event)
+                        vim.lsp.buf.format({
+                            async = false,
+                            bufnr = event.bufnr,
+                        })
+                    end
+                }
+            )
+
             require("neodev").setup()
 
             local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -44,7 +59,7 @@ return {
 
                 -- Mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
-                local bufopts = { noremap=true, silent=true, buffer=bufnr }
+                local bufopts = { noremap = true, silent = true, buffer = bufnr }
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
                 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -70,17 +85,17 @@ return {
                 settings = {
                     Lua = {
                         completion = {
-							callSnippet = "Replace",
-						},
-						diagnostics = {
-							globals = { "vim" },
-						},
-						workspace = {
-							library = {
-								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-								[vim.fn.stdpath("config") .. "/lua"] = true,
-							},
-						},
+                            callSnippet = "Replace",
+                        },
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                        workspace = {
+                            library = {
+                                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                                [vim.fn.stdpath("config") .. "/lua"] = true,
+                            },
+                        },
                     }
                 }
             })
