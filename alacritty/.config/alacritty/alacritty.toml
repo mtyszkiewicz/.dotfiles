@@ -5,7 +5,7 @@ import = ["~/.config/alacritty/themes/rose-pine.toml"]
 decorations = "full"
 dynamic_title = true
 dynamic_padding = false
-opacity = 0.9
+opacity = 0.92
 startup_mode = "Windowed"
 
 # [window.dimensions]
