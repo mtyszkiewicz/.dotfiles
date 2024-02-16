@@ -13,6 +13,6 @@ vim.opt.expandtab = true
 
 -- Use statusline plugin instead
 vim.opt.laststatus = 3
-
+vim.opt.showmode = false
 -- Highlight cursor line
 vim.opt.cursorline = true
