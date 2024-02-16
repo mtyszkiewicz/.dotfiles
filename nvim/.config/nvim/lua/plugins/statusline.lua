@@ -1,3 +1,13 @@
 return {
-    { 'beauwilliams/statusline.lua' }
+    -- { 'beauwilliams/statusline.lua' }
+    'nvim-lualine/lualine.nvim',
+    event = 'ColorScheme',
+    config = function()
+        require('lualine').setup({
+            options = {
+                --- @usage 'rose-pine' | 'rose-pine-alt'
+                theme = 'rose-pine'
+            }
+        })
+    end
 }
