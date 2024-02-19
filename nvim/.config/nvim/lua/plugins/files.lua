@@ -7,6 +7,12 @@ return {
         },
         config = function()
             local minifiles = require("mini.files")
+            local window_width = vim.fn.winwidth(0)
+            local width_preview = 60
+
+            if window_width > 200 then
+                width_preview = 120
+            end
 
             minifiles.setup({
                 content = {
@@ -28,7 +34,7 @@ return {
                     preview = true,
                     width_focus = 50,
                     width_nofocus = 15,
-                    width_preview = 60,
+                    width_preview = width_preview,
                 }
             })
 
