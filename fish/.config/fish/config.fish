@@ -1,5 +1,3 @@
-#/opt/homebrew/bin/fish
-
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
