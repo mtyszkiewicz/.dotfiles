@@ -111,6 +111,10 @@ return {
                 cmd = { "sql-language-server", "up", "--method", "stdio" },
                 filetypes = { "sql" }
             })
+
+            lspconfig.gopls.setup({
+                on_attach = on_attach
+            })
         end,
     },
 }

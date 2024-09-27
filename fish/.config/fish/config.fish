@@ -1,29 +1,45 @@
 #/opt/homebrew/bin/fish
 
-set -x POETRY_CONFIG_DIR $HOME/.config/pypoetry
-set -x MANPAGER /opt/homebrew/bin/most
-set -x HOMEBREW_NO_AUTO_UPDATE 1
-set -gx LC_ALL en_US.UTF-8
-set -gx LANG en_US.UTF-8
-set -x TERM 'screen-256color'
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
-alias code="open -b com.microsoft.VSCode '$argv'"
-alias reload_fish_config 'source "$__fish_config_dir/config.fish"'
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export TERM="xterm-256color"
+
+# macOS-specific configs
+if test (uname) = 'Darwin'
+    export PATH="/opt/homebrew/bin:$PATH"
+    export HOMEBREW_NO_AUTO_UPDATE=1
+end
+
+if type -q direnv
+    direnv hook fish | source
+end
+
+if type -q most
+    export MANPAGER="opt/homebrew/bin/most"
+end
+
 alias tree="tree -C"
-# alias ssh="~/.ssh/ssh-wrapper.sh $argv"
-alias vscode-setup="sh ~/.config/scripts/vscode-setup.sh"
-alias zspotify='$HOME/projects/zspotify/.venv/bin/python3 -m zspotify -md "$HOME/Music/Spotify"'
+alias code="open -b com.microsoft.VSCode '$argv'"
+alias reload_fish_config='source "$__fish_config_dir/config.fish"'
 alias wr="wormhole receive"
 alias ws="wormhole send"
 alias nv="nvim ."
+alias c="clear"
 
 set fish_greeting  # disable fish greeting
-fish_add_path /opt/homebrew/bin
-fish_add_path /Users/mtyszkiewicz/Library/Python/3.9/bin
 
 if status --is-interactive
     SHELL=fish keychain --quiet --eval --agents ssh | source
 end
 
+if test -f $HOME/.config/fish/secrets.fish
+    source $HOME/.config/fish/secrets.fish
+end
+
 source ~/.config/fish/lscolors.fish
-fish_config theme choose "Rosé Pine"

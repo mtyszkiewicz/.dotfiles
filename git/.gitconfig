@@ -15,3 +15,5 @@ ga = graph --all
 
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
+[init]
+	defaultBranch = main

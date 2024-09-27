@@ -1,11 +1,11 @@
 live_config_reload = true
-import = ["~/.config/alacritty/themes/rose-pine.toml"]
+# import = ["~/.config/alacritty/themes/vscode.toml"]
 
 [window]
 decorations = "full"
 dynamic_title = true
 dynamic_padding = false
-opacity = 0.92
+opacity = 0.82
 startup_mode = "Windowed"
 
 # [window.dimensions]
