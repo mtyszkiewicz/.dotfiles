@@ -13,7 +13,7 @@ ga = graph --all
     email = 56219944+mtyszkiewicz@users.noreply.github.com
     name = Marcin Tyszkiewicz
 
-[includeIf "gitdir:~/work/"]
-    path = ~/work/.gitconfig
+[includeIf "gitdir:~/.dotfiles"]
+    path = ~/.dotfiles/.gitconfig
 [init]
 	defaultBranch = main
