@@ -37,8 +37,8 @@ if status --is-interactive
     SHELL=fish keychain --quiet --eval --agents ssh | source
 end
 
-if test -f ~/.config/fish/secrets.fish
-    source ~/.config/fish/secrets.fish
+if test -f ~/.config/local-config.fish
+    source ~/.config/local-config.fish
 end
 
 source ~/.config/fish/lscolors.fish
