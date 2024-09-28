@@ -13,10 +13,21 @@ export TERM="xterm-256color"
 if test (uname) = 'Darwin'
     export PATH="/opt/homebrew/bin:$PATH"
     export HOMEBREW_NO_AUTO_UPDATE=1
+
+    # Disable language special character suggestions on key hold
+    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 end
 
 if type -q direnv
     direnv hook fish | source
+end
+
+if type -q pyenv
+    pyenv init - | source
+end
+
+if type -q fzf
+    fzf --fish | source
 end
 
 if type -q most
