@@ -26,10 +26,6 @@ if type -q pyenv
     pyenv init - | source
 end
 
-if type -q fzf
-    fzf --fish | source
-end
-
 if type -q most
     export MANPAGER="opt/homebrew/bin/most"
 end
@@ -51,5 +47,3 @@ end
 if test -f ~/.config/local-config.fish
     source ~/.config/local-config.fish
 end
-
-source ~/.config/fish/lscolors.fish
