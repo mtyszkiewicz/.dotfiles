@@ -1,1 +1,0 @@
-source "/Users/mtyszkiewicz/.deno/env.fish"
