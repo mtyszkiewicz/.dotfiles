@@ -18,6 +18,11 @@ if test (uname) = 'Darwin'
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 end
 
+# linux-specific configs
+if test (uname) = 'Linux'
+end
+
+
 if type -q direnv
     direnv hook fish | source
 end
@@ -42,6 +47,11 @@ set fish_greeting  # disable fish greeting
 
 if status --is-interactive
     SHELL=fish keychain --quiet --eval --agents ssh | source
+
+    if type -q gpg
+        export GPG_TTY=$(tty)
+        gpgconf --launch gpg-agent
+    end
 end
 
 if test -f ~/.config/local-config.fish
