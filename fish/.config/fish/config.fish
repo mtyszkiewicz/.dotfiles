@@ -28,6 +28,8 @@ if type -q direnv
 end
 
 if type -q pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     pyenv init - | source
 end
 
