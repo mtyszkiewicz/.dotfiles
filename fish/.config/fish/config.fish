@@ -37,6 +37,11 @@ if type -q most
     export MANPAGER="opt/homebrew/bin/most"
 end
 
+if type -q gpg
+    export GPG_TTY=$(tty)
+    gpgconf --launch gpg-agent
+end
+
 alias tree="tree -C"
 alias code="open -b com.microsoft.VSCode '$argv'"
 alias reload_fish_config='source "$__fish_config_dir/config.fish"'
@@ -49,11 +54,6 @@ set fish_greeting  # disable fish greeting
 
 if status --is-interactive
     SHELL=fish keychain --quiet --eval --agents ssh | source
-
-    if type -q gpg
-        export GPG_TTY=$(tty)
-        gpgconf --launch gpg-agent
-    end
 end
 
 if test -f ~/.config/local-config.fish
