@@ -9,6 +9,7 @@ return {
         end,
         config = function()
             require("nvim-treesitter.configs").setup({
+                modules = {},
                 ensure_installed = {
                     "lua",
                     "vim",
@@ -20,9 +21,13 @@ return {
                     "yaml",
                     "toml",
                     "dockerfile",
+                    "terraform",
+                    "java",
                     "json"
                 },
-                sync_install = true,
+                sync_install = false,
+                auto_install = true,
+                ignore_install = { "javascript" },
                 highlight = { enable = true },
                 indent = { enable = true },
             })
