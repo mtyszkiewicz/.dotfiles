@@ -17,7 +17,7 @@ return {
             "VertSplit",
             "SignColumn",
             "EndOfBuffer",
-            "CursorLine",
+            -- "CursorLine",
             "WinSeparator",
         }
         for _, elem in pairs(transparent_elements) do
