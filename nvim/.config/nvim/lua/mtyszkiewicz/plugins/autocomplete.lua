@@ -19,13 +19,14 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                 }),
+
                 mapping = cmp.mapping.preset.insert({
                     ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                     ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
                     ['<C-k>'] = cmp.mapping.confirm({ select = true }),
-                    ['<C-e>'] = cmp.mapping.abort(),        -- Add ability to abort completion
-                    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Scroll in completion docs
-                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-e>'] = cmp.mapping.abort(), -- Add ability to abort completion
+                    -- ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Scroll in completion docs
+                    -- ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                 }),
                 snippet = {
                     expand = function(args)

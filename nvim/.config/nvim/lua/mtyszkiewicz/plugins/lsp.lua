@@ -27,13 +27,13 @@ return {
                     callback = function(event)
                         local opts = { buffer = event.bufnr, remap = true }
 
-                        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                        vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
-                        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+                        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+                        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                        vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
                         vim.keymap.set("n", "<leader>vrr", telescope_builtin.lsp_references, opts)
                         vim.keymap.set("n", "<leader>vws", telescope_builtin.lsp_dynamic_workspace_symbols, opts)
-                        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+                        vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
                     end
                 }
             )
