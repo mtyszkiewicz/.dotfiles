@@ -24,7 +24,7 @@ end
 
 lazy.setup({
     spec = {
-        { import = "plugins" }
+        { import = "mtyszkiewicz.plugins" }
     },
     -- checker = { enabled = true },
 })
