@@ -1,5 +1,5 @@
 live_config_reload = true
-# import = ["~/.config/alacritty/themes/vscode.toml"]
+# import = ["~/.config/alacritty/themes/gruvbox-dark.toml"]
 
 [window]
 decorations = "full"
