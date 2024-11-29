@@ -2,7 +2,11 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        -- make c section background transparent
+        vim.cmd [[
+          highlight! link StatusLine Normal
+          highlight! link StatusLineNC Normal
+        ]]
+        -- Set transparent background
         local auto_theme = require('lualine.themes.auto')
         auto_theme.normal.c.bg = 'none'
         auto_theme.insert.c.bg = 'none'
@@ -18,12 +22,14 @@ return {
                 always_divide_middle = true,
             },
             sections = {
-                lualine_a = { 'mode' },
+                lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
                 lualine_b = { 'filename', 'branch', 'diff', 'diagnostics' },
                 lualine_c = { '%=' },
                 lualine_x = {},
                 lualine_y = { 'filetype', 'progress' },
-                lualine_z = { 'location' },
+                lualine_z = {
+                    { 'location', separator = { right = '' }, left_padding = 2 },
+                },
             }
         })
     end,
