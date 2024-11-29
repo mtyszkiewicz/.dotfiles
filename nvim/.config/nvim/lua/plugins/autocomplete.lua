@@ -13,36 +13,29 @@ return {
             local cmp = require("cmp")
             local luasnip = require("luasnip")
 
-            -- local cmp_format = require('lsp-zero').cmp_format()
-
             cmp.setup({
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
-                --- (Optional) Show source name in completion menu
-                -- formatting = cmp_format,
-                mapping = cmp.mapping.preset.insert({
-                    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-                    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                    ['<Enter>'] = cmp.mapping.confirm({ select = true }),
-
-                    -- scroll up and down the documentation window
-                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-d>'] = cmp.mapping.scroll_docs(4),
-                }),
-                sources = {
+                sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "buffer" },
-                    { name = "path" },
+                }),
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+                    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+                    ['<C-k>'] = cmp.mapping.confirm({ select = true }),
+                    ['<C-e>'] = cmp.mapping.abort(),        -- Add ability to abort completion
+                    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Scroll in completion docs
+                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                }),
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end
                 },
             })
         end,
     },
     {
-        'echasnovski/mini.pairs',
-        event = 'VeryLazy'
+        'echasnovski/mini.pairs'
     },
 }
