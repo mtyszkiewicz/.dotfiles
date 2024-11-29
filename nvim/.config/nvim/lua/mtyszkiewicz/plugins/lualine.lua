@@ -2,9 +2,9 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+        -- highlight! link StatusLineNC Normal
         vim.cmd [[
           highlight! link StatusLine Normal
-          highlight! link StatusLineNC Normal
         ]]
         -- Set transparent background
         local auto_theme = require('lualine.themes.auto')

@@ -5,6 +5,7 @@ vim.opt.termguicolors = true
 
 vim.opt.laststatus = 3
 vim.opt.showmode = false
+vim.opt.cmdheight=0
 
 -- Hide tilda characters
 vim.opt.fillchars = { eob = " " }
