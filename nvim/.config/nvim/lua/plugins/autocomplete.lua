@@ -40,5 +40,9 @@ return {
                 },
             })
         end,
-    }
+    },
+    {
+        'echasnovski/mini.pairs',
+        event = 'VeryLazy'
+    },
 }
