@@ -10,6 +10,35 @@ return {
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
+            -- https://www.nerdfonts.com/cheat-sheet
+            local icons = {
+                Text = "󰦨",
+                Method = "󰷼",
+                Function = "󰊕",
+                Constructor = "",
+                Field = "",
+                Variable = "",
+                Class = "󰠱",
+                Interface = "",
+                Module = "󰏗",
+                Property = "󰜢",
+                Unit = "󰊱",
+                Value = "󰎠",
+                Enum = "󰦪",
+                Keyword = "󰌋",
+                Snippet = "",
+                Color = "󰏘",
+                File = "󰈔",
+                Reference = "",
+                Folder = "󰉋",
+                EnumMember = "󰦾",
+                Constant = "󰏿",
+                Struct = "󰙅",
+                Event = "",
+                Operator = "󰆕",
+                TypeParameter = "󰊄"
+            }
+
             local cmp = require("cmp")
             local luasnip = require("luasnip")
 
@@ -24,14 +53,33 @@ return {
                     ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                     ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
                     ['<C-k>'] = cmp.mapping.confirm({ select = true }),
-                    ['<C-e>'] = cmp.mapping.abort(), -- Add ability to abort completion
-                    -- ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Scroll in completion docs
-                    -- ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-e>'] = cmp.mapping.abort(),
                 }),
+
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
                     end
+                },
+
+                formatting = {
+                    expandable_indicator = true,
+                    fields = { "kind", "abbr", "menu" },
+                    format = function(entry, vim_item)
+                        vim_item.kind = string.format("%s", icons[vim_item.kind])
+                        vim_item.menu = ({
+                            nvim_lsp = "[LSP]",
+                            luasnip = "[Snippet]",
+                            buffer = "[Buffer]",
+                            path = "[Path]",
+                        })[entry.source.name]
+                        return vim_item
+                    end,
+                },
+                window = {
+                    documentation = {
+                        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    },
                 },
             })
         end,
