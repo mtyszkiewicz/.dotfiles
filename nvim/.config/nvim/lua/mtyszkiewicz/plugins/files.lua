@@ -17,21 +17,6 @@ return {
             end
 
             minifiles.setup({
-                content = {
-                    -- filter = function(entry)
-                    --     return (
-                    --         entry.name ~= '.DS_Store'
-                    --         and entry.name ~= '.git'
-                    --         and entry.name ~= '.direnv'
-                    --         and entry.name ~= '__pycache__'
-                    --         and entry.name ~= '.pytest_cache'
-                    --         and entry.name ~= '.vscode'
-                    --         and entry.name ~= '.idea'
-                    --         and entry.name ~= '.venv'
-                    --     )
-                    -- end,
-                    -- prefix = function() end, -- remove icons
-                },
                 windows = {
                     preview = true,
                     width_focus = 50,
