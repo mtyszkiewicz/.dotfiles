@@ -24,7 +24,13 @@ end
 
 lazy.setup({
     spec = {
-        { import = "mtyszkiewicz.plugins" }
+        { import = "mtyszkiewicz.plugins" },
+        {
+            { 'kylechui/nvim-surround' },
+            { 'isobit/vim-caddyfile',    event = 'VeryLazy' },
+            { 'kylechui/nvim-surround',  event = 'VeryLazy' },
+            { 'echasnovski/mini.comment' },
+        }
     },
     -- checker = { enabled = true },
 })
