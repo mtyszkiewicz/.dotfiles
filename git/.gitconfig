@@ -19,5 +19,6 @@ ga = graph --all
 
 [includeIf "gitdir:~/.dotfiles"]
     path = ~/.dotfiles/.gitconfig
+
 [init]
 	defaultBranch = main

@@ -3,7 +3,6 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export GPG_TTY=$(tty)
 
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
@@ -22,7 +21,6 @@ end
 # linux-specific configs
 if test (uname) = 'Linux'
 end
-
 
 if type -q direnv
     direnv hook fish | source
