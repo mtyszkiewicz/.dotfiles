@@ -27,9 +27,8 @@ lazy.setup({
         { import = "mtyszkiewicz.plugins" },
         {
             { 'kylechui/nvim-surround' },
-            { 'isobit/vim-caddyfile',    event = 'VeryLazy' },
-            { 'kylechui/nvim-surround',  event = 'VeryLazy' },
-            { 'echasnovski/mini.comment' },
+            { 'isobit/vim-caddyfile',   event = 'VeryLazy' },
+            { 'kylechui/nvim-surround', event = 'VeryLazy' },
         }
     },
     -- checker = { enabled = true },
