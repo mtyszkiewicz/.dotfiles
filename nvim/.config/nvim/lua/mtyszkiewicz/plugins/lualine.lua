@@ -2,10 +2,14 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+        local status_ok, lualine = pcall(require, "lualine")
+        if not status_ok then
+            return
+        end
+
         -- highlight! link StatusLineNC Normal
-        vim.cmd [[
-          highlight! link StatusLine Normal
-        ]]
+        vim.cmd("highlight! link StatusLine Normal")
+
         -- Set transparent background
         local auto_theme = require('lualine.themes.auto')
         auto_theme.normal.c.bg = 'none'
@@ -15,22 +19,61 @@ return {
         auto_theme.command.c.bg = 'none'
         auto_theme.inactive.c.bg = 'none'
 
-        require('lualine').setup({
+        local hide_in_width = function()
+            return vim.fn.winwidth(0) > 80
+        end
+
+        local mode = {
+            "mode",
+            separator = { left = "" },
+            right_padding = 2,
+        }
+
+        local diagnostics = {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            sections = { "error", "warn" },
+            symbols = { error = " ", warn = " " },
+            colored = false,
+            always_visible = true,
+        }
+
+        local diff = {
+            "diff",
+            colored = false,
+            symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+            cond = hide_in_width,
+        }
+
+        local filetype = {
+            "filetype",
+            icons_enabled = false,
+        }
+
+        local location = {
+            "location",
+            padding = 0,
+            left_padding = 2,
+            separator = { right = "" },
+        }
+
+        lualine.setup {
             options = {
-                section_separators = { left = '', right = '' },
-                component_separators = {},
+                globalstatus = true,
+                icons_enabled = true,
+                theme = "auto",
+                section_separators = { left = "", right = "" },
+                disabled_filetypes = { "alpha", "dashboard" },
                 always_divide_middle = true,
             },
             sections = {
-                lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-                lualine_b = { 'filename', 'branch', 'diff', 'diagnostics' },
-                lualine_c = { '%=' },
-                lualine_x = {},
-                lualine_y = { 'filetype', 'progress' },
-                lualine_z = {
-                    { 'location', separator = { right = '' }, left_padding = 2 },
-                },
-            }
-        })
+                lualine_a = { mode },
+                lualine_b = { "branch" },
+                lualine_c = { diagnostics },
+                lualine_x = { diff, "encoding", filetype },
+                lualine_y = { "progress" },
+                lualine_z = { location },
+            },
+        }
     end,
 }
