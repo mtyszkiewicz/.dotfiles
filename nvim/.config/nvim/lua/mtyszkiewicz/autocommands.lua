@@ -17,3 +17,23 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
     end,
     pattern = { "*" },
 })
+
+-- Set theme transparency
+local transparent_elements = {
+    "Normal",
+    "NormalNC",
+    "NormalFloat",
+    "FloatBorder",
+    "LineNr",
+    "Folded",
+    "NonText",
+    "SpecialKey",
+    "VertSplit",
+    "SignColumn",
+    "EndOfBuffer",
+    -- "CursorLine",
+    "WinSeparator",
+}
+for _, elem in pairs(transparent_elements) do
+    vim.cmd("hi " .. elem .. " guibg=NONE ctermbg=NONE")
+end
