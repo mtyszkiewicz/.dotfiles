@@ -38,6 +38,7 @@ return {
                 }
             )
 
+            -- Format code before file write
             vim.api.nvim_create_autocmd(
                 "BufWritePre",
                 {

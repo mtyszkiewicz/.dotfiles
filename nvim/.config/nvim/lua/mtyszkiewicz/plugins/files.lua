@@ -2,7 +2,7 @@ return {
     { 'nvim-tree/nvim-web-devicons', opts = { variant = 'dark' } },
     {
         'echasnovski/mini.files',
-        version = '*',
+        version = false,
         priority = 1000,
         dependencies = {
             'nvim-tree/nvim-web-devicons'
