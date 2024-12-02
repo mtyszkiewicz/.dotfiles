@@ -18,3 +18,12 @@ vim.o.shiftwidth = 4   -- Number of spaces inserted when indenting
 
 -- Highlight cursor line
 vim.opt.cursorline = true
+
+vim.filetype.add({
+    filename = {
+        ["poetry.lock"] = "toml"
+    },
+    extension = {
+        avsc = "json"
+    }
+})

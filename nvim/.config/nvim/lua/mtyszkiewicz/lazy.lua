@@ -29,6 +29,12 @@ lazy.setup({
             { 'nvim-lua/plenary.nvim' },
             { 'isobit/vim-caddyfile',   event = 'VeryLazy' },
             { 'kylechui/nvim-surround', event = 'VeryLazy' },
+            {
+                'fei6409/log-highlight.nvim',
+                config = function()
+                    require('log-highlight').setup {}
+                end,
+            },
         }
     },
     -- checker = { enabled = true },
