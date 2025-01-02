@@ -3,7 +3,7 @@ live_config_reload = true
 
 [window]
 decorations = "buttonless"
-opacity = 0.9
+opacity = 0.82
 startup_mode = "Windowed"
 title = "alacritty"
 
