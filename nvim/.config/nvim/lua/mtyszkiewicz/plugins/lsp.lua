@@ -63,6 +63,7 @@ return {
                     "pyright",
                     "ruff",
                     "yamlls",
+                    "sqlls"
                 },
                 handlers = {
                     -- default handler

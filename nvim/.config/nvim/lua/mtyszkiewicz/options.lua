@@ -24,6 +24,7 @@ vim.filetype.add({
         ["poetry.lock"] = "toml"
     },
     extension = {
-        avsc = "json"
+        avsc = "json",
+        tf = "terraform",
     }
 })
