@@ -5,7 +5,7 @@ return {
         build = ":TSUpdate",
         -- dependencies = { "nvim-treesitter/nvim-treesitter-context" },
         config = function()
-            require('nvim-treesitter.configs').setup(
+            require("nvim-treesitter.configs").setup(
                 {
                     highlight = { enable = true },
                     indent = { enable = true },
@@ -18,6 +18,7 @@ return {
                     },
                     ensure_installed = {
                         "bash",
+                        "c",
                         "diff",
                         "dockerfile",
                         "java",

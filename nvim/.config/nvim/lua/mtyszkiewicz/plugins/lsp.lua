@@ -44,10 +44,14 @@ return {
                 "BufWritePre",
                 {
                     callback = function(event)
-                        vim.lsp.buf.format({
-                            async = false,
-                            bufnr = event.bufnr,
-                        })
+                        -- Check the file type before formatting
+                        local filetype = vim.bo.filetype
+                        if filetype ~= "c" then
+                            vim.lsp.buf.format({
+                                async = false,
+                                bufnr = event.bufnr,
+                            })
+                        end
                     end
                 }
             )
@@ -64,6 +68,7 @@ return {
                     "ruff",
                     "yamlls",
                     "sqlls"
+                    "clangd",
                 },
                 handlers = {
                     -- default handler
@@ -107,6 +112,10 @@ return {
                     },
                 },
             }
+
+            lspconfig.clangd.setup({
+
+            })
 
             -- mason_null_ls.setup({
             --     automatic_installation = true,
