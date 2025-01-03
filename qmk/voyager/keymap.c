@@ -60,16 +60,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             case KC_J:
                 if (record->event.pressed) {
-                    register_code16(KC_MS_WH_UP);
+                    register_code16(QK_MOUSE_WHEEL_UP);
                 } else {
-                    unregister_code16(KC_MS_WH_UP);
+                    unregister_code16(QK_MOUSE_WHEEL_UP);
                 }
                 return false;
             case KC_K:
                 if (record->event.pressed) {
-                    register_code16(KC_MS_WH_DOWN);
+                    register_code16(QK_MOUSE_WHEEL_DOWN);
                 } else {
-                    unregister_code16(KC_MS_WH_DOWN);
+                    unregister_code16(QK_MOUSE_WHEEL_DOWN);
                 }
                 return false;
         }
