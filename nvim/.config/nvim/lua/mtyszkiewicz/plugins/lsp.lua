@@ -67,7 +67,7 @@ return {
                     "pyright",
                     "ruff",
                     "yamlls",
-                    "sqlls"
+                    "sqlls",
                     "clangd",
                 },
                 handlers = {
