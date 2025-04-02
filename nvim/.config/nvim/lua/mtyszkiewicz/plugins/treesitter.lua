@@ -34,6 +34,9 @@ return {
                         "vim",
                         "vimdoc",
                         "yaml",
+                        "html",
+                        "typescript",
+                        "javascript",
                     }
                 }
             )
