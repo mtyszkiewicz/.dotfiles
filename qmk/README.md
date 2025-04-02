@@ -1,4 +1,6 @@
-# My QMK configs
+# My QMK configuration for [ZSA Voyager](https://www.zsa.io/voyager)
+
+![](./zsa-voyager-img.webp)
 
 Latest version: https://github.com/mtyszkiewicz/qmk_firmware
 
