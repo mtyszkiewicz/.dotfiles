@@ -27,12 +27,6 @@ if type -q direnv
     direnv hook fish | source
 end
 
-# if type -q pyenv
-#     export PYENV_ROOT="$HOME/.pyenv"
-#     export PATH="$PYENV_ROOT/bin:$PATH"
-#     pyenv init - | source
-# end
-
 if type -q most
     export MANPAGER="/opt/homebrew/bin/most"
 end
