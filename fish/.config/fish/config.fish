@@ -34,7 +34,7 @@ end
 # end
 
 if type -q most
-    export MANPAGER="opt/homebrew/bin/most"
+    export MANPAGER="/opt/homebrew/bin/most"
 end
 
 if type -q gpg
