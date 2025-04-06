@@ -49,7 +49,6 @@ alias wr="wormhole receive"
 alias ws="wormhole send"
 alias nv="nvim ."
 alias c="clear"
-alias activate_poetry="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate.fish\""
 
 set fish_greeting  # disable fish greeting
 
