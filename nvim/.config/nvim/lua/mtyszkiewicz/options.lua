@@ -26,5 +26,6 @@ vim.filetype.add({
     extension = {
         avsc = "json",
         tf = "terraform",
+        conf = "ini"
     }
 })

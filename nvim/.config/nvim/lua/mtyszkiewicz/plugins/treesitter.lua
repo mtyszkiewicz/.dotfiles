@@ -27,6 +27,7 @@ return {
                         "markdown",
                         "python",
                         "query",
+                        "ini",
                         "regex",
                         "sql",
                         "terraform",
