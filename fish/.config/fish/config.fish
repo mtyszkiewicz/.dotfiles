@@ -9,6 +9,18 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM="xterm-256color"
 
+alias tree="tree -C"
+alias va="source .venv/bin/activate.fish"
+alias vd="deactivate"
+alias wr="wormhole receive"
+alias ws="wormhole send"
+alias nv="nvim ."
+alias c="clear"
+# alias code="open -b com.microsoft.VSCode '$argv'"
+alias reload_fish_config='source "$__fish_config_dir/config.fish"'
+
+set fish_greeting  # disable fish greeting
+
 # macOS-specific configs
 if test (uname) = 'Darwin'
     export PATH="/opt/homebrew/bin:$PATH"
@@ -16,6 +28,14 @@ if test (uname) = 'Darwin'
 
     # Disable language special character suggestions on key hold
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+    if status --is-interactive
+        SHELL=fish keychain --quiet --eval --agents ssh | source
+    end
+    if type -q gpg
+        export GPG_TTY=$(tty)
+        gpgconf --launch gpg-agent
+    end
 end
 
 # linux-specific configs
@@ -29,25 +49,6 @@ end
 
 if type -q most
     export MANPAGER="/opt/homebrew/bin/most"
-end
-
-if type -q gpg
-    export GPG_TTY=$(tty)
-    gpgconf --launch gpg-agent
-end
-
-alias tree="tree -C"
-alias code="open -b com.microsoft.VSCode '$argv'"
-alias reload_fish_config='source "$__fish_config_dir/config.fish"'
-alias wr="wormhole receive"
-alias ws="wormhole send"
-alias nv="nvim ."
-alias c="clear"
-
-set fish_greeting  # disable fish greeting
-
-if status --is-interactive
-    SHELL=fish keychain --quiet --eval --agents ssh | source
 end
 
 if test -f ~/.config/local-config.fish
