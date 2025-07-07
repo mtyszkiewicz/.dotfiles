@@ -1,10 +1,9 @@
-live_config_reload = true
 # import = ["~/.config/alacritty/themes/gruvbox-dark.toml"]
 
 [window]
-decorations = "buttonless"
+# decorations = "buttonless"
 opacity = 0.82
-startup_mode = "Windowed"
+# startup_mode = "Windowed"
 title = "alacritty"
 
 [window.padding]
@@ -33,6 +32,7 @@ TERM = "xterm-256color"
 [font]
 size = 15.0
 normal.family = "FiraCode Nerd Font"
+# normal.family = "Monaspace Neon Var"
 
 [[mouse.bindings]]
 action = "PasteSelection"
@@ -54,4 +54,7 @@ render_timer = false
 [selection]
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[general]
+live_config_reload = true
 
