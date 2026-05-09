@@ -27,6 +27,9 @@ local transparent_elements = {
     "LineNr",
     "Folded",
     "NonText",
+    "TabLineFill",
+    "TabLine",
+    "TabLineSel",
     "SpecialKey",
     "VertSplit",
     "SignColumn",
@@ -37,3 +40,13 @@ local transparent_elements = {
 for _, elem in pairs(transparent_elements) do
     vim.cmd("hi " .. elem .. " guibg=NONE ctermbg=NONE")
 end
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = { "MiniFilesWindowOpen", "MiniFilesWindowUpdate" },
+    callback = function(args)
+        local win = args.data.win_id
+        vim.api.nvim_win_set_option(win, "winblend", 0)
+        vim.api.nvim_win_set_option(win, "cursorline", false)
+        vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#555555", bg = "NONE" })
+    end,
+})
