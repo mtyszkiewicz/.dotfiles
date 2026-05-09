@@ -20,6 +20,8 @@ alias c="clear"
 alias reload_fish_config='source "$__fish_config_dir/config.fish"'
 
 set fish_greeting  # disable fish greeting
+export OPENCODE_ENABLE_EXA=1
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 
 # macOS-specific configs
 if test (uname) = 'Darwin'
@@ -40,6 +42,7 @@ end
 
 # linux-specific configs
 if test (uname) = 'Linux'
+    alias nvitop="uvx --python 3.11 nvitop"
 end
 
 if type -q direnv
@@ -54,3 +57,6 @@ end
 if test -f ~/.config/local-config.fish
     source ~/.config/local-config.fish
 end
+
+# opencode
+fish_add_path /home/mtyszkiewicz/.opencode/bin
