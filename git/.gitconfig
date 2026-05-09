@@ -9,13 +9,13 @@ ga = graph --all
 [push]
     autoSetupRemote = true
 
-[commit]
-    gpgsign = true
+; [commit]
+;     gpgsign = true
 
 [user]
     email = 56219944+mtyszkiewicz@users.noreply.github.com
     name = Marcin Tyszkiewicz
-    signingkey = A705053A0ABE78C4
+    ; signingkey = A705053A0ABE78C4
 
 [includeIf "gitdir:~/.dotfiles"]
     path = ~/.dotfiles/.gitconfig

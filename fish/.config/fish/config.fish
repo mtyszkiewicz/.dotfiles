@@ -9,6 +9,9 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM="xterm-256color"
 
+export OPENCODE_ENABLE_EXA=1
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
+
 alias tree="tree -C"
 alias va="source .venv/bin/activate.fish"
 alias vd="deactivate"
@@ -32,7 +35,7 @@ if test (uname) = 'Darwin'
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
     if status --is-interactive
-        SHELL=fish keychain --quiet --eval --agents ssh | source
+        SHELL=fish keychain --quiet --eval  | source
     end
     if type -q gpg
         export GPG_TTY=$(tty)
