@@ -7,7 +7,6 @@ export PATH="$HOME/go/bin:$PATH"
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-# export TERM="xterm-256color"
 
 export OPENCODE_ENABLE_EXA=1
 export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
