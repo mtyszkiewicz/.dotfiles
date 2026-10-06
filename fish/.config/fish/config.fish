@@ -7,7 +7,7 @@ export PATH="$HOME/go/bin:$PATH"
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
 export OPENCODE_ENABLE_EXA=1
 export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
@@ -63,3 +63,18 @@ end
 
 # opencode
 fish_add_path /home/mtyszkiewicz/.opencode/bin
+
+# pnpm
+set -gx PNPM_HOME "/Users/mtyszkiewicz/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+fish_add_path /Users/mtyszkiewicz/.local/bin
+
+# dbt aliases
+alias dbtf=/Users/mtyszkiewicz/.local/bin/dbt
